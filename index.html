@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    <div class="relative w-full">
+        <div class="overlay" id="overlay">
+
+        </div>
+        <div id="modal" class="modal">
+            <form id="form">
+                <div class="w-[500px] relative">
+                    <div class="w-full flex justify-center h-full items-center absolute  px-[3rem]">
+                        <div class="mr-[1rem]">
+                            <p class="letter" id="letterModal">
+                                    юу вэ гэхлээр би чамайг оройн хоолонд урьж байна. Зөвшөөрнө гэж найдажийн ;)
+                            </p>
+                            <div id="btn" class="w-full flex justify-end gap-[20px] mt-[3rem]">
+                                <div>
+                                    <button type="submit" id="denied-btn"><p class="req text-[1.5rem]">Taтгалзах</p></button>
+                                </div>
+                                <div>
+                                    <button type="submit" id="success"><p class="req text-[1.5rem]">Зөвшөөрөх</p></button>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <img src="./img/1.png" class="w-full h-[100vh] object-cover" alt="">
+                </div>
+            </form>
+        </div>
+        <div id="modal-btn" class="modal-btn fixed z-[99] w-full justify-center h-[100%] items-center">
+            <div class="">
+                <div class="w-[300px] relative h-[300px]">
+                    <div class="w-full absolute z-[3] flex justify-center h-full items-center">
+                        <div>
+                            <h1 class="font text-[1.5rem]">Итгэлтэй байна уу?</h1>
+                            <div class="flex w-full justify-end gap-[20px] mt-[0.5rem]">
+                                <div>
+                                    <button  id="denied" class="underline">Тйим</button>
+                                </div>
+                                <div>
+                                    <button id="yes" class="underline">Үгүй</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <img src="./img/1.png" class="relative z-[2] w-full h-full" alt="">
+                    
+                </div>
+                
+            </div>
+        </div>
+        <div class="w-[800px] absolute z-[4]  pt-[19rem]">
+            <blockquote>
+                <q  id="letter">Hi оройн мэнд энийг явуулах гээл өдөржин бэлдэж суулаа.</q>
+                <cite id="cite">Энийг уншиж байгаа чамд зориулав. П. Маралмаа</cite>
+            </blockquote>
+
+            <div class="w-full flex justify-end">
+                <button id="next">Open letter</button>
+            </div>
+        </div>
+        <div class="fixed z-[3] w-full h-[100vh] top-[0%]">
+            <img src="./img/pxfuel.png" class="w-full h-full object-cover" alt="">
+        </div>
+        
+    </div>
+    <div class="video" id="video">
+        <div class="w-full h-full">
+            <video class="w-full h-full object-cover" autoplay loop muted>
+                <source src="./img/Claudia Alves.mp4">
+            </video>
+        </div>
+    </div>
+    <div class="hidden">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/V1Pl8CzNzCw" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/V1Pl8CzNzCw" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+       
+       
+        
+    
+    
+    
+        
+        
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.21.0/firebase-app.js" integrity="sha512-Dr6LNeuWBFa+CxTqemIsV5Xsz1amsxl1RQmuYzQC6rGG0uuZE6msAPi0EdPSvBcWd/phZ8ZjqiPb9s9C15iBQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.21.0/firebase-firestore.js" integrity="sha512-pZBpHH5enrCo5IT9qintqCXe0yA/27HJIchp0Q9p1ByNlWixySc2+ekO3SZQyDpP2URT/kedoSgTER0QQ3iWDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+            import { getDatabase,  ref, set, get, child, onValue } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+            
+             const firebaseConfig = {
+                apiKey: "AIzaSyCXq5b1YrHQm0diSLFpJ4kiAcltgcpg6rw",
+                authDomain: "burger-84af4.firebaseapp.com",
+                databaseURL: "https://burger-84af4-default-rtdb.firebaseio.com",
+                projectId: "burger-84af4",
+                storageBucket: "burger-84af4.appspot.com",
+                messagingSenderId: "105108182383",
+                appId: "1:105108182383:web:5aff93dcdb654126c7849a",
+                measurementId: "G-VSVT8C51Y2"
+            };
+
+            // Initialize Firebase
+            
+            const app = initializeApp(firebaseConfig);
+
+            const db = getDatabase(app)
+            const dbRef = ref(db, "success/")
+            const letter = document.getElementById("letter")
+            const letterModal = document.getElementById("letterModal")
+            const btn = document.getElementById("btn")
+            const cite = document.getElementById("cite")
+            var neXt = document.getElementById("next")
+            var modal = document.getElementById("modal")
+            var overLay = document.getElementById("overlay")
+            var video = document.getElementById("video")
+            const form = document.getElementById("form")
+            const success = document.getElementById("success")
+            const denied = document.getElementById("denied")
+            const deniedBtn = document.getElementById("denied-btn")
+            const modalBtn = document.getElementById("modal-btn")
+            const yes = document.getElementById("yes")
+
+            onValue(dbRef, (snapshot) => {
+                snapshot.forEach((el) => {
+                    const childData = el.val();
+                    if(childData === false){
+                        closeModal()
+                        modalBtn.classList.remove("modal2-open")
+                        letter.innerText = "Заза ойолголоо."
+                        letterModal.innerText = "Ягаад татгалзсан дээр дарсаныг мэдэхгүй байгаа ч okay ойлголоо."
+                        letterModal.style.fontSize = "2rem"
+                        letterModal.style.textAlign = "center"
+                        btn.style.display = "none"
+                        cite.style.display = "none"
+                        letter.style.fontSize = "6rem"
+                        
+                    }  else if(childData === true){
+                        deniedBtn.style.display = "none"
+                        success.style.display = "none"
+                        letterModal.innerText = "эхний ээлжинд энгийн оройн хоол учираас болзоо гэх санаа зовох зүйл байхгүйшүү :) Хаашаа орох вэ гэхлээр Nagomi Restaurant орой 07:00 цагт уулзий :)"
+                        letterModal.style.fontSize = "2rem"
+                    } else {
+                        
+                    }
+                });
+            })
+            
+
+            
+
+            form.addEventListener("submit", async function(e) {
+                e.preventDefault();
+               
+            })
+
+            denied.addEventListener("click", function(e){
+                set(ref(db, "success/"),{
+                    success: false
+                })
+            })
+            success.addEventListener("click", function(e){
+                set(ref(db, "success/"),{
+                    success: true
+                })
+            })
+                        
+                    
+            window.addEventListener("load", () => {
+                video.classList.add("video-active")
+            })
+
+            function openModal(){
+                modal.classList.add("active")
+                overLay.classList.add("active2")
+            } 
+            function closeModal(){
+            modal.classList.remove("active")
+            overLay.classList.remove("active2")
+            } 
+
+            function modal2Open() {
+                modalBtn.classList.add("modal2-open")
+                closeModal()
+                overLay.classList.add("active2")
+            }
+
+            function closeOpen() {
+                modalBtn.classList.remove("modal2-open")
+                openModal()
+                overLay.classList.add("active2")
+            }
+
+            yes.addEventListener("click", closeOpen)
+
+
+            deniedBtn.addEventListener("click", modal2Open)
+            neXt.addEventListener("click", openModal)
+            overLay.addEventListener("click", closeModal)
+
+
+            function splitWords() {
+                let quote = document.querySelector("blockquote q");
+                quote.innerText.replace(/(<([^>]+)>)/ig,"");
+                quotewords = quote.innerText.split(" "),
+                wordCount = quotewords.length;
+                quote.innerHTML = "";
+                for (let i=0; i < wordCount; i++) {
+                quote.innerHTML += "<span>"+quotewords[i]+"</span>";
+                if (i < quotewords.length - 1) {
+                    quote.innerHTML += " ";
+                }
+                }
+                quotewords = document.querySelectorAll("blockquote q span");
+                fadeWords(quotewords);
+            }
+            
+            function getRandom(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+            
+            function fadeWords(quotewords) {
+                Array.prototype.forEach.call(quotewords, function(word) {
+                let animate = word.animate([{
+                    opacity: 0,
+                    filter: "blur("+getRandom(2,5)+"px)"
+                }, {
+                    opacity: 1,
+                    filter: "blur(0px)"
+                }], 
+                { 
+                    duration: 1000,
+                    delay: getRandom(500,3300),
+                    fill: 'forwards'
+                } 
+                )
+                })
+            }
+            window.addEventListener("load",  splitWords)
+
+
+            setTimeout(function(){
+                var audio = new Audio("./videoplayback.mp3")
+                audio.play()
+                console.log("ajillaj bna sda min")
+            }, 1000)
+            
+            
+
+
+    </script>
+    <script src="./script.js"></script>
+</body>
+</html>
