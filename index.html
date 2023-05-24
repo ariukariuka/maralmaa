@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="overflow-x-hidden  overflow-y-hidden h-[100vh] relative">
     
     <div class="relative w-full">
         <div class="overlay" id="overlay">
@@ -16,11 +16,11 @@
         </div>
         <div id="modal" class="modal">
             <form id="form">
-                <div class="w-[500px] relative">
-                    <div class="w-full flex justify-center h-full items-center absolute  px-[3rem]">
-                        <div class="mr-[1rem]">
+                <div class="w-full md:w-[500px] relative">
+                    <div class="w-full flex justify-center h-full items-center absolute px-[1.5rem]  md:px-[3rem]">
+                        <div class="">
                             <p class="letter" id="letterModal">
-                                    юу вэ гэхлээр би чамайг оройн хоолонд урьж байна. Зөвшөөрнө гэж найдажийн ;)
+                                     Нэг оройг хамтдаа тухтай сууж ярилцахийг хүссэн болохоор би чамайг оройн хоолонд урьж байна. 
                             </p>
                             <div id="btn" class="w-full flex justify-end gap-[20px] mt-[3rem]">
                                 <div>
@@ -60,9 +60,9 @@
                 
             </div>
         </div>
-        <div class="w-[800px] absolute z-[4]  pt-[19rem]">
+        <div class="w-full md:w-[800px] absolute z-[4] pt-[13rem]  md:pt-[19rem]">
             <blockquote>
-                <q  id="letter">Hi оройн мэнд энийг явуулах гээл өдөржин бэлдэж суулаа.</q>
+                <q  id="letter">Жаахан удаачилаа уучлаарай энийг явуулах гээл өдөржин шөнөжин бэлдэж суулаа. Хэлэх гэсэн үг маань Open Letter дээр дарахаар гарч ирнэ</q>
                 <cite id="cite">Энийг уншиж байгаа чамд зориулав. П. Маралмаа</cite>
             </blockquote>
 
@@ -71,12 +71,12 @@
             </div>
         </div>
         <div class="fixed z-[3] w-full h-[100vh] top-[0%]">
-            <img src="./img/pxfuel.png" class="w-full h-full object-cover" alt="">
+            <img src="./img/pxfuel.png" class="w-full h-full ig  object-cover" alt="">
         </div>
         
     </div>
     <div class="video" id="video">
-        <div class="w-full h-full">
+        <div class="w-full h-full flex justify-center">
             <video class="w-full h-full object-cover" autoplay loop muted>
                 <source src="./img/Claudia Alves.mp4">
             </video>
@@ -274,11 +274,8 @@
                 audio.play()
                 console.log("ajillaj bna sda min")
             }, 1000)
-            
-            
-
 
     </script>
-    <script src="./script.js"></script>
+
 </body>
 </html>
