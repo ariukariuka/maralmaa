@@ -143,3 +143,14 @@ blockquote {
     text-decoration: underline;
   }
   
+
+  .body {
+      display: flex;
+  }
+
+
+  @media(min-width: 1100px){
+    .body {
+      display: none;
+    }
+  }
